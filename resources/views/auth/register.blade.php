@@ -1,4 +1,73 @@
-@extends('layouts.app')
+@extends('layouts.loginLayout')
+@section('name1')
+<div>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+
+        <div class="login-box">
+            <h1>Register Form</h1>
+            <div class="text-box">
+                <input type="text"  class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  placeholder="Your name">
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-box">
+                <input type="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  placeholder="Your email">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-box">
+                {{-- <select class="form-control" name="product_id">
+                    <option>Select Item</option>
+                    @foreach ($items as $key => $value)
+                        <option value="{{ $key }}" {{ ( $key == $selectedID) ? 'selected' : '' }}>
+                            {{ $value }}
+                        </option>
+                    @endforeach
+                </select> --}}
+                <input type="country"  class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}"  placeholder="Your country">
+                @error('country')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-box">
+                <input type="text" name="userName" class="  @error('userName') is-invalid @enderror" name="userName" value="{{ old('userName') }}" placeholder="User name">
+                @error('userName')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-box">
+                <input type="password" name="password" class=" @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+            </div>
+            <div class="text-box">
+                <input type="password" name="password_confirmation"  placeholder="Confirm Password">
+
+            </div>
+            <input type="submit" class="btn" name="" value="Sign in">
+
+        </div>
+    </form>
+</div>
+
+@endsection
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -103,4 +172,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

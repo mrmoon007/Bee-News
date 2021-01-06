@@ -19,10 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'myCollectionController@show')->name('home');
 Route::get('/news', 'newsController@news');
 Route::get('/post', 'myCollectionController@create')->name('post.create');
 Route::post('/store', 'myCollectionController@store')->name('post.store');
-Route::get('/showd', 'myCollectionController@show')->name('post.show');
+Route::get('/delete/{$id}', 'myCollectionController@show')->name('post.delete');
 Route::get('/search', 'myCollectionController@search')->name('post.search');
 

@@ -1,4 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.loginLayout')
+@section('name1')
+<div>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+
+        <div class="login-box">
+            <h1>login</h1>
+            <div class="text-box">
+                <input type="text" name="userName" class="  @error('userName') is-invalid @enderror" name="userName" value="{{ old('userName') }}" placeholder="User name">
+                @error('userName')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-box">
+                <input type="password" name="password" class=" @error('userName') is-invalid @enderror" name="userName" value="{{ old('userName') }}" placeholder="Password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+            </div>
+            <input type="submit" class="btn" name="" value="Sign in">
+
+        </div>
+    </form>
+</div>
+
+@endsection
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +102,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

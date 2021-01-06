@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color:#2C3E50;
+                color: #FFf;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -42,6 +42,7 @@
 
             .content {
                 text-align: center;
+
             }
 
             .title {
@@ -49,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FFf;;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -81,18 +82,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Wellcome to Bee News
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route('login') }}">login</a>
+                    <a href="{{ route('register') }}">Register</a>
+
                 </div>
 
             </div>
