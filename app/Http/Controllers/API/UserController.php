@@ -89,6 +89,7 @@ class UserController extends Controller
         $post->author=$request->author;
         $post->category=$$request->category;
         $post->save();
+        return response()->json(['success' => $post], $this->successStatus);
     }
 
 
@@ -97,7 +98,7 @@ class UserController extends Controller
         $data= postModels::find($id);
         $data->delete();
 
-        return response()->json($data);
+        return response()->json(['success' => $data], $this->successStatus);
     }
 
 
