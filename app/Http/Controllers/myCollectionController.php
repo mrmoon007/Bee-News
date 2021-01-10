@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Hash;
+use app\User;
 
 
 class myCollectionController extends Controller
@@ -53,4 +55,40 @@ class myCollectionController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function password()
+    {
+        return view('password');
+    }
+
+    public function passwordUpdate(Request $request)
+    {
+        $id= Auth::user()->id;
+        $db_password= Auth::user()->password;
+        $old_password= $request->old_Password;
+        $new_password= $request->new_password;
+        $confirm_password= $request->password_confirmation;
+
+        if(Hash::check($old_password, $db_password))
+        {
+
+            if($new_password==$confirm_password)
+            {
+                user::find($id)->update([
+                    'password'=>Hash::make($new_password)
+                ]);
+                Auth :: logout();
+                return redirect()->route('login');
+
+            }
+            else{
+                return redirect()->back()->with('new-sms','new password and confirm password not match');
+            }
+        }
+        else
+        {
+            dd($id);
+            return redirect()->back()->with('old-sms','Old password not match');
+        }
+     }
 }

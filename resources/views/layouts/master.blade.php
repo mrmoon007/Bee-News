@@ -2,7 +2,16 @@
 <html>
 <head>
 	<title>Bee News</title>
-	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -20,6 +29,7 @@
                 @if (Auth::check())
                 <form  id="logout-id" method="POST" action="{{ route('logout') }}">@csrf</form>
                 <a  href="#" onclick="document.getElementById('logout-id').submit();">Logout</a>
+                <a href="{{route('change.password')}}">Change Password</a>
 
                 @else
 

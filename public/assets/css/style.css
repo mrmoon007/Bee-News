@@ -74,7 +74,9 @@ img {
 .menu{
 	background-color:#CACFD2 ;
 	display: flex;
-	justify-content: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+
 }
 .menu a{
 	text-decoration: none;
