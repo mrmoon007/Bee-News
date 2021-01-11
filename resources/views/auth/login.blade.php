@@ -23,6 +23,7 @@
                         @enderror
             </div>
             <input type="submit" class="btn" name="" value="Sign in">
+            <a class="btn" href="{{ route('password.request') }}">forgot Password</a>
 
         </div>
     </form>
